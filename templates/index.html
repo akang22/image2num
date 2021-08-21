@@ -1,51 +1,59 @@
-<!DOCTYPE html>
 <html>
-  <head>
-   <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>repl.it</title>
-    <!--  Bootstrap  -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-		<!--  Styles  -->
-    <link href="style.css" rel="stylesheet" type="text/css"/>
-  </head>
-  <body>
-    <script src="script.js"></script> 
-    <div id="header">
-      <div class="img-wrapper">
-        <img src="https://picsum.photos/60/60">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Image2Latex</title>
+  <!--  Bootstrap  -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href={{ url_for('static', filename='style.css' )}}>
+</head>
+
+<body>
+  <script src="script.js"></script>
+  <div class="container center-container">
+    <div class="row row-flex">
+      <div class="col-md-3 col-sm-3 col-5">
       </div>
-      <div id="textheader">
-        <h1>Title Placeholder</h1>
-        <h2>A short description of Title Placeholder</h3>
+      <div class="col-md-1 col-sm-1 col-1">
+        <img id="logo" src="https://picsum.photos/60/60">
+      </div>
+      <div class="col-md-6 col-sm-6 col-6">
+        <h1>Image2Latex</h1>
+        <h3>Convert an image of a formula to MathJax Syntax</h3>
       </div>
     </div>
-    <div id="second-banner">
-      <div id="interaction-region">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-4" id="interaction-region">
         <div id="file-upload">
-          <button type="button">I am useless</button>
+          <button type="button">Upload File</button>
         </div>
         <div id="output-region">
           <img src="https://picsum.photos/170/300" id="submit-image">
           <div id="latex-region">
             <img src="https://picsum.photos/170/150" id="made-image">
-            <input type="text" value="results"  id="latex-output" readonly>
+            <input type="text" value="results" id="latex-output" readonly>
           </div>
         </div>
       </div>
-      <div id="instructions">
-        <h1> Instructions </h1>
-        <p> just do it 4head. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>  
+      <div class="col-md-4" id="instructions">
+        <h2> FAQ </h2>
+        <h4>How do I use this?</h4>
+        <p>Just upload a screenshot of a LaTeX/MathJax formula and we'll try to convert it into LaTeX/MathJax syntax!</p>
+        <h4>Why would I use this?</h4>
+        <p>Honestly, we're not too sure. MathJax usually isn't supported by typical OCR (optical character recognition) engines and this can help with converting pdfs to LaTeX documents.</p>
+        <h4>How did you make this?</h4>
+        <p>This front end was made with Bootstrap, and the backend uses Flask and PyTorch. We made this together for the Ignition Hacks 2021 Hackathon.</p>
+      </div>
     </div>
-    <div id="faq">
-      <h3>What is this project</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <h3>Who is this made by?</h3>
-      <p>this was made by joe mama in a hackathon</p>
-    </div>
-  </body>
+  </div>
+</body>
+
 </html>

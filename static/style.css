@@ -1,46 +1,15 @@
+#logo {
+  margin-top: 30px;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-#hi
-
-#header {
-  display: flex;
-  position: relative;
-  left: 100px;
-}
-
-#header > element {
-  flex: 1
-}
-
-.img-wrapper {
-  overflow: hidden;
-}
-
-#header img {
-  position: relative;
-  top: 50px;
-}
-
-#textheader {
-  margin: 10px;
-}
-
-
-
-#second-banner {
-  display: inline;
-}
-
 #interaction-region {
-  position: absolute;
-  width: 440px;
-  border: thin solid black;
-  margin-left: -220px;
-  left: 50%;
+  min-width: 440px;
   text-align: center;
   height: 400px;
 }
@@ -63,26 +32,13 @@
 }
 
 #instructions {
-  flex: 1;
+  flex: 1 0 0;
   position: relative;
-  border: thin solid black;
-  max-width: 300px;
-  padding: 10px;
-  margin-left: 50px;
-  left: 400px;
+  min-width: 300px;
+  padding: 30px;
 }
 
 #instructions p {
-  width: 250px;
+  min-width: 250px;
   height: auto;
 }
-
-#faq {
-  border: thin solid black;
-  position: relative;
-  width: 500px;
-  left: calc(50% - 250px);
-  padding: 18px;
-  top: 460px;
-}
-
