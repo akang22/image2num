@@ -12,8 +12,8 @@ from torch import nn, optim
 transform = transforms.Compose([transforms.ToTensor(),transforms.Normalize((0.5,),(0.5))])
 
 #download datasets and load them to DataLoader
-trainset = datasets.MNIST('./data', download=False, train=True, transform=transform)
-valset = datasets.MNIST('./data', download=False,train=False,transform=transform)
+trainset = datasets.MNIST('./data', download=True, train=True, transform=transform)
+valset = datasets.MNIST('./data', download=True,train=False,transform=transform)
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=64, shuffle=True)
 valloader = torch.utils.data.DataLoader(valset, batch_size=64, shuffle=True)
 
@@ -48,7 +48,7 @@ print('After backward pass: \n', model[0].weight.grad)
 
 optimizer = optim.SGD(model.parameters(), lr=0.003, momentum=0.9)
 time0=time()
-epochs = 30
+epochs = 50
 for e in range (epochs):
     running_loss = 0
     for images, labels in trainloader:
@@ -84,9 +84,9 @@ for images,labels in valloader:
             correct_count += 1
         all_count += 1
 print("Numbers of Images Tested: ", all_count)
-print("\nModel Accuracy: " (correct_count/all_count))   
+print("\nModel Accuracy: ", (correct_count/all_count))   
 
-
+torch.save(model, './my_mnist_model.pt')
 
 #figure = plt.figure()
 #num_of_images = 60
