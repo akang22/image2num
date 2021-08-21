@@ -8,6 +8,7 @@ from time import time
 from torchvision import datasets, transforms
 from torch import nn, optim
 
+# simply returns a data loader for MNIST
 def get_loader(train: bool, transform):
     return torch.utils.data.DataLoader(
                 datasets.MNIST(
@@ -38,7 +39,10 @@ def main():
     # the first later is a linear operation from the input size (784, which is the amount of pixels in the image), and turns it into 128 values
     # those 128 values are then made non-negative (negatives all go to zero)
     # this process is then done to decrease it to 64 value (attributes?), then finally 10
-    # and then, LogSoftMax allows it to quantify the 'probability' of each and compare it to each other
+    # and then, LogSoftMax allows it to quantify the goodness of our fit
+    # and negative log-likelihood loss then somehow distills that into a single number 
+    # these last two aren't really important to understand, just know that they take the final probabilities
+    # and convert them to a measure of our model's capability
     model = nn.Sequential(
         nn.Linear(input_size, hidden_sizes[0]), 
         nn.ReLU(),
@@ -47,21 +51,14 @@ def main():
         nn.Linear(hidden_sizes[1], output_size),
         nn.LogSoftmax(dim=1))
 
-    # negative log-likelihood loss (don't ask me what this means)
     criterion = nn.NLLLoss()
-    images, labels = next(iter(train_loader))
-    images = images.view(images.shape[0], -1)
 
-    logps = model(images) #log probabilities
-    loss = criterion(logps, labels) #calculate the NLL loss
+    # core training process
 
-    print('Before backward pass: \n', model[0].weight.grad)
-    loss.backward()
-    print('After backward pass: \n', model[0].weight.grad)
-
-    #core training process
-
-    optimizer = optim.SGD(model.parameters(), lr=0.003, momentum=0.9)
+    optimizer = optim.SGD(
+        model.parameters(),
+        lr=0.003,
+        momentum=0.9)
     time0=time()
     epochs = 50
     for e in range (epochs):
