@@ -28,6 +28,7 @@ def main():
     train_loader = get_loader(True, transform)
     val_loader = get_loader(False, transform)
 
+    # constants for our model (see below explanation)
     input_size = 784
     hidden_sizes = [128,64]
     output_size = 10
@@ -38,7 +39,6 @@ def main():
     # those 128 values are then made non-negative (negatives all go to zero)
     # this process is then done to decrease it to 64 value (attributes?), then finally 10
     # and then, LogSoftMax allows it to quantify the 'probability' of each and compare it to each other
-    
     model = nn.Sequential(
         nn.Linear(input_size, hidden_sizes[0]), 
         nn.ReLU(),
@@ -47,8 +47,7 @@ def main():
         nn.Linear(hidden_sizes[1], output_size),
         nn.LogSoftmax(dim=1))
 
-    #negative log-likelihood loss (don't ask me what this means)
-
+    # negative log-likelihood loss (don't ask me what this means)
     criterion = nn.NLLLoss()
     images, labels = next(iter(train_loader))
     images = images.view(images.shape[0], -1)
@@ -112,5 +111,5 @@ def main():
     #    plt.imshow(images[index].numpy().squeeze(), cmap='gray_r')
     #plt.show()
 
-if __name__ == 'main':
+if __name__ == '__main__':
     main()
