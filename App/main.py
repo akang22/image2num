@@ -33,7 +33,7 @@ def upload_file():
             tensor = transform_image(img_bytes)
             prediction = get_prediction(tensor)
             print(prediction)
-            data = {'prediction': prediction.item(), 'class_name': str(prediction.item())}
+            data = {prediction.item()}
             return render_template("index2.html", number_guess=data)
         except:
             return jsonify({'error': 'error during prediction'})
