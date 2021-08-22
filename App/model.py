@@ -17,7 +17,7 @@ learning_rate = 0.001
 
 transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,),(0.3081,))])
 
-# MNIST dataset little piece of shit fucking
+# MNIST dataset
 train_dataset = torchvision.datasets.MNIST(root='./data', train=True, transform=transform,download=False)
 
 test_dataset = torchvision.datasets.MNIST(root='./data', train=False, transform=transforms.ToTensor())
