@@ -12,7 +12,7 @@ toastr = Toastr(app)
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("index.html", number_guess=None)
 
 @app.route('/imageupload', methods = ['GET', 'POST'])
 def upload_file():
@@ -27,7 +27,7 @@ def upload_file():
                 importlib.import_module('model')
                 string_output = model.get_translation(filepath)
                 os.remove(filepath)
-                return render_template("index.html"), string_output
+                return render_template("index.html", number_guess=string_output)
     flash('Please submit a pdf, png, jpeg, or jpg file.')
     return redirect(url_for('home'))
 
