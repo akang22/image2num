@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.text {
+  text-align: center;
+  color: #FFFFFF;
+}
+
+body {
+  background: #1A1A1E;
+  font-size: 18px;
+}
+
+h1 {
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 5rem;
+  margin: 3rem;
+}
+
+h3 {
+  font-family: Courier New;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin: 3rem;
+}
+
+p {
+  font-family: Courier New;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #BBBBBB;
+}
+
+.p-wrapper {
+  width: 50rem;
+  margin: 3rem auto;
+}
+
+.upload-btn-wrapper {
+  display: inline-block;
+  overflow: hidden;
+
+  position: relative;
+  left: calc(50vw - (25rem / 2) + 0.1rem / 2);
+}
+
+.btn {
+  border: 0.1rem solid gray;
+  height: 4rem;
+  border-radius: 2rem;
+  width: 25rem;
+  background: #2B64F5;
+
+  font-family: Montserrat;
+  font-size: 1rem;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.upload-btn-wrapper input[type=file] {
+  position: absolute;
+  height: 4rem;
+  border-radius: 2rem;
+  width: 25rem;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
