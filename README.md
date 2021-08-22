@@ -1,4 +1,4 @@
-# latex
+# image2num
 Ignition Hacks 2021
 
 INSTRUCTIONS:
