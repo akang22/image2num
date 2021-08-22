@@ -1,8 +1,8 @@
 import os
+import importlib
 from flask import Flask, render_template, request, flash, url_for
 from werkzeug.utils import redirect, secure_filename
 from flask_toastr import Toastr
-import time
 
 app = Flask(__name__)
 app.secret_key = 'oAQcsFERTqOq6Iua3hvngkCCq33hgzgRp1nwhBkk9agwiZkNOJ'
@@ -20,9 +20,14 @@ def upload_file():
         file = request.files['file']
         if allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file.save(filepath)
             flash('file uploaded successfully')
-            return redirect(url_for('home'))
+            if filename.rsplit('.', 1)[1].lower() != 'jpg':
+                importlib.import_module('model')
+                string_output = model.get_translation(filepath)
+                os.remove(filepath)
+                return render_template("index.html"), string_output
     flash('Please submit a pdf, png, jpeg, or jpg file.')
     return redirect(url_for('home'))
 
