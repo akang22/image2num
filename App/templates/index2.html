@@ -22,7 +22,6 @@
   <div class="p-wrapper">
     <p>An application which uses neural network training for number recognition in high-contrast images. <br> Upload an image (.png, .jpg, .jpeg) with a black background and white digits. You can also find sample images to try at <a href="https://github.com/rockoac5/i2n-sample-images"></a></p>
   </div>
-
   <div class="upload-btn-wrapper">
     <form method=post action={{ url_for('upload_file') }} enctype=multipart/form-data>
       <input type=file name="file" onchange="this.form.submit()">
@@ -30,7 +29,7 @@
     <button class="btn">NEW IMAGE</button>
   </div>
   {% if number_guess is not none %}
-    <h2> Your number is {{number_guess}}</h2>
+    <h3 class="text"> Your number is {{number_guess}}</h3>
   {% endif %}
   <h3 class="text">FAQ</h3>
   <div class="p-wrapper">
