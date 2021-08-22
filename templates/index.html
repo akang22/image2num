@@ -9,10 +9,15 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href={{ url_for('static', filename='style.css') }}>
+
+  <!-- Toastr -->
+  {{ toastr.include_jquery() }}
+  {{ toastr.include_toastr_css() }}
+  {{ toastr.message() }}
 </head>
 
 <body>
-  <script src="script.js"></script>
+  {{ toastr.include_toastr_js() }}
   <div class="container center-container">
     <div class="row row-flex">
       <div class="col-md-3 col-sm-3 col-5">
@@ -32,7 +37,10 @@
       </div>
       <div class="col-md-4" id="interaction-region">
         <div id="file-upload">
-          <button type="button">Upload File</button>
+          <form method=post action={{ url_for('upload_file') }} enctype=multipart/form-data>
+            <input type=file name=file>
+            <input type=submit value="Upload File">
+          </form>
         </div>
         <div id="output-region">
           <img src="https://picsum.photos/170/300" id="submit-image">
