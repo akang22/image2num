@@ -1,5 +1,5 @@
 import main
 
-def test_pipeline:
+def test_pipeline():
   assert True
  
