@@ -43,8 +43,5 @@ def upload_file():
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-def test_allowed_file(filename):
-    assert allowed_file('asdf.jpg') and allowed_file('asd.f.jpg') and allowed_file('asdf.jpeg') and allowed_file('asdf.png')
-
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
