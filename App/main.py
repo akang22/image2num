@@ -7,6 +7,12 @@ from PIL import Image
 from flask import Flask, request, jsonify
 from nn_utils import transform_image, get_prediction
 
+app = Flask(__name__)
+app.secret_key = 'oAQcsFERTqOq6Iua3hvngkCCq33hgzgRp1nwhBkk9agwiZkNOJ'
+app.config['UPLOAD_FOLDER'] = os.path.abspath("uploads");
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
+toastr = Toastr(app)
+
 @app.route("/")
 def home():
     return render_template("index.html", number_guess=None)
@@ -36,9 +42,4 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 if __name__ == "__main__":
-    app = Flask(__name__)
-    app.secret_key = 'oAQcsFERTqOq6Iua3hvngkCCq33hgzgRp1nwhBkk9agwiZkNOJ'
-    app.config['UPLOAD_FOLDER'] = os.path.abspath("uploads");
-    ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
-    toastr = Toastr(app)
     app.run()
