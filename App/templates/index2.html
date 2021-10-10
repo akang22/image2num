@@ -26,7 +26,11 @@
     <form method=post action={{ url_for('upload_file') }} enctype=multipart/form-data>
       <input type=file name="file" onchange="this.form.submit()">
     </form>
-    <button class="btn">NEW IMAGE</button>
+    {% if number_guess is not none %}
+      <button class="btn">NEW IMAGE</button>
+    {% else %}
+      <button class="btn">UPLOAD IMAGE</button>
+    {% endif %}
   </div>
   {% if number_guess is not none %}
     <h3 class="text"> Your number is {{number_guess}}</h3>
