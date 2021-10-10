@@ -32,7 +32,7 @@ def upload_file():
             prediction = get_prediction(tensor)
             print(prediction)
             data = {prediction.item()}
-            return render_template("index2.html", number_guess=data)
+            return render_template("index.html", number_guess=data)
         except:
             return jsonify({'error': 'error during prediction'})
     flash('Please submit a png, jpeg, or jpg file.')

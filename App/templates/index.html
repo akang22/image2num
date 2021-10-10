@@ -20,14 +20,21 @@
   <h1 class="text">image2num</h1>
   <h3 class="text">Ignition Hacks 2021</h3>
   <div class="p-wrapper">
-    <p>An application which uses neural network training for number recognition in high-contrast images. <br> Upload an image with a black background and white numbers.</p>
+    <p>An application which uses neural network training for number recognition in high-contrast images. <br> Upload an image (.png, .jpg, .jpeg) with a black background and white digits. You can also find sample images to try at <a href="https://github.com/rockoac5/i2n-sample-images">this link</a>.</p>
   </div>
   <div class="upload-btn-wrapper">
     <form method=post action={{ url_for('upload_file') }} enctype=multipart/form-data>
       <input type=file name="file" onchange="this.form.submit()">
     </form>
-    <button class="btn">UPLOAD IMAGE</button>
+    {% if number_guess is not none %}
+      <button class="btn">NEW IMAGE</button>
+    {% else %}
+      <button class="btn">UPLOAD IMAGE</button>
+    {% endif %}
   </div>
+  {% if number_guess is not none %}
+    <h3 class="text"> Your number is {{number_guess}}</h3>
+  {% endif %}
   <h3 class="text">FAQ</h3>
   <div class="p-wrapper">
     <p><b>How does this program work?</b> <br>
@@ -36,7 +43,7 @@
     We trained the neural network on the MNIST handwritten digits database using PyTorch in the venv Python virtual environment; web development was done with the Flask micro web framework, and Figma was also used for the UI design of the website. <br>
     <b>What was the intention/motive of this project?</b> <br>
     This project was our submission for the Ignition Hacks 2021 hackathon's Project Sigma division. The hackathon had machine learning/artificial intelligence as its main theme, and we were also inspired to create something with aspects of education/mathematics. <br>
-    <b>What are the next steps for this project?</b>
+    <b>What are the next steps for this project?</b> <br>
     Our initial idea was to develop an application which would recognize mathematical equations in an image and convert that into the MathJax mathematical notation language (a subset of LaTeX). However, this was not feasible during the duration of the hackathon, and we will be iterating on this in the future.
   </div>
 </body>
