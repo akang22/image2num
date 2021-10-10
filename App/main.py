@@ -1,10 +1,9 @@
 import os
 import importlib
-from flask import Flask, render_template, request, flash, url_for
+from flask import Flask, render_template, request, flash, url_for, jsonify, send_from_directory
 from werkzeug.utils import redirect, secure_filename
 from flask_toastr import Toastr
 from PIL import Image
-from flask import Flask, request, jsonify
 from nn_utils import transform_image, get_prediction
 
 app = Flask(__name__)
