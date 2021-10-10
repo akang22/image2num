@@ -18,6 +18,7 @@ def home():
     return render_template("index.html", number_guess=None)
 
 @app.route("/favicon")
+def favicon()
     return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route('/imageupload', methods = ['GET', 'POST'])
