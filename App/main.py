@@ -7,7 +7,10 @@ from PIL import Image
 from nn_utils import transform_image, get_prediction
 
 app = Flask(__name__)
-app.secret_key = os.environ['SECRET_KEY'] or "defaultKeyChangeTheEnvironmentVariableIfThisIsProduction"
+try:
+    app.secret_key = os.environ['SECRET_KEY']
+except KeyError:
+    app.secret_key = "defaultKeyChangeTheEnvironmentVariableIfThisIsProduction"
 app.config['UPLOAD_FOLDER'] = os.path.abspath("uploads");
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 toastr = Toastr(app)
