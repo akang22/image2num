@@ -1,4 +1,4 @@
 # image2num
 Ignition Hacks 2021
 
-Online at imgtonum.ml
+Online, hosted on heroku ([link](imgtonum.ml))
