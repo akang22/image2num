@@ -10,7 +10,7 @@ app = Flask(__name__)
 try:
     app.secret_key = os.environ['SECRET_KEY']
 except KeyError:
-    app.secret_key = "defaultKeyChangeTheEnvironmentVariableIfThisIsProduction"
+    app.secret_key = "defaultKeySetEnvironmentSecretIfThisIsProduction"
 app.config['UPLOAD_FOLDER'] = os.path.abspath("uploads");
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 toastr = Toastr(app)
