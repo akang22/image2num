@@ -3,6 +3,8 @@ Created for the hackathon Ignition Hacks 2021
 
 Online, hosted on heroku ([link](http://imgtonum.ml))
 
+![website screenshot](/website_screenshot)
+
 ## From the website:
 An application which uses neural network training for number recognition in high-contrast images.
 
