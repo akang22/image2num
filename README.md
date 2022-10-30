@@ -1,7 +1,8 @@
 # image2num
 Created for the hackathon Ignition Hacks 2021
 
-Online, hosted on heroku ([link](http://imgtonum.ml))
+~~Online, hosted on heroku ([link](http://imgtonum.ml))~~
+No longer hosted because of free tier going down. Will migrate sometime when I have time.
 
 ![website screenshot](/website_screenshot.png)
 
